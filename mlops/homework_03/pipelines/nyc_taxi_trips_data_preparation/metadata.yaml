@@ -23,19 +23,57 @@ blocks:
   configuration:
     file_source:
       path: homework_03/transformers/transformation.py
-  downstream_blocks: []
+  downstream_blocks:
+  - modelling
   executor_config: null
   executor_type: local_python
   has_callback: false
   language: python
   name: transformation
   retry_config: null
-  status: updated
+  status: executed
   timeout: null
   type: transformer
   upstream_blocks:
   - ingest
   uuid: transformation
+- all_upstream_blocks_executed: true
+  color: null
+  configuration:
+    file_source:
+      path: homework_03/transformers/modelling.py
+  downstream_blocks:
+  - model_log_registry
+  executor_config: null
+  executor_type: local_python
+  has_callback: false
+  language: python
+  name: modelling
+  retry_config: null
+  status: updated
+  timeout: null
+  type: transformer
+  upstream_blocks:
+  - transformation
+  uuid: modelling
+- all_upstream_blocks_executed: false
+  color: null
+  configuration:
+    file_source:
+      path: homework_03/data_exporters/model_log_registry.py
+  downstream_blocks: []
+  executor_config: null
+  executor_type: local_python
+  has_callback: false
+  language: python
+  name: model_log_registry
+  retry_config: null
+  status: executed
+  timeout: null
+  type: data_exporter
+  upstream_blocks:
+  - modelling
+  uuid: model_log_registry
 cache_block_output_in_memory: false
 callbacks: []
 concurrency_config: {}
