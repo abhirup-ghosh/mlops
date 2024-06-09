@@ -50,13 +50,13 @@ blocks:
   language: python
   name: modelling
   retry_config: null
-  status: updated
+  status: executed
   timeout: null
   type: transformer
   upstream_blocks:
   - transformation
   uuid: modelling
-- all_upstream_blocks_executed: false
+- all_upstream_blocks_executed: true
   color: null
   configuration:
     file_source:
